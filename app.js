@@ -1,4 +1,4 @@
-// require("dotenv").config()   for AWS deployment
+require("dotenv").config()   //for deployment
 
 const express= require("express")
 const path= require("path")
@@ -13,15 +13,10 @@ const blogRoute=require("./routes/blog")
 const userRoute=require("./routes/user");
 
 const app=express()
-const PORT=8000
+const PORT= process.env.PORT || 8000      // for deployment
 
-// const PORT= process.env.PORT || 8000      for deployment
-
-// export MONGO_URL=mongodb://localhost:27017/blogify
-
-// connect(process.env.MONGO_URL)
 mongoose
-.connect("mongodb://localhost:27017/blogify")
+.connect(process.env.MONGO_URL)
 .then((e) => console.log("MongoDB is connected"))
 
 // ejs
