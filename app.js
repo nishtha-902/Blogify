@@ -41,4 +41,4 @@ app.get("/", async (req,res) => {
 app.use("/user",userRoute)
 app.use("/blog",blogRoute)
 
-app.listen(PORT,() => console.log("Server Started!!"))
+app.listen(PORT,"0.0.0.0",() => console.log("Server Started!!"))
